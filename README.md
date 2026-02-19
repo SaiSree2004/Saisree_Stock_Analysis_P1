@@ -58,16 +58,9 @@ These insights help in understanding stock behavior and market trends.
 
 ---
 
-## Project Structure
-Saisree_Stock_Analysis_P1/
-│
-├── P1_Stock Analysis.ipynb        # Main Jupyter Notebook (ETL + Analysis)
-├── aapl_stock_prices.csv          # Apple stock dataset
-├── goog_stock_prices.csv          # Google stock dataset
-├── msft_stock_prices.csv          # Microsoft stock dataset
-└── README.md                      # Project documentation
 
-The notebook contains the complete ETL process, MySQL integration, and technical analysis.
+<img width="914" height="305" alt="image" src="https://github.com/user-attachments/assets/a9b02b3d-ac86-4d6e-9b00-82c02e0b94ad" />
+
 
 ---
 
