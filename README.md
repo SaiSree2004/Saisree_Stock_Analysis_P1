@@ -1,105 +1,86 @@
 # Stock Analysis - P1 (Data Engineering Project)
 
 ## Project Overview
+This project focuses on analyzing historical stock market data of multiple companies using an end-to-end ETL (Extract, Transform, Load) pipeline. The main objective is to clean raw stock datasets, apply business rules, store the processed data in MySQL, and perform technical analysis such as trend analysis, volatility detection, and price visualization.  
+The project uses stock datasets of AAPL, GOOG, and MSFT to identify patterns, performance trends, and key financial insights through data engineering and visualization techniques.
 
-This project is an end-to-end ETL (Extract, Transform, Load) based stock data analysis project.
-The main goal of this project is to take raw historical stock data, clean and transform it using business rules, store the processed data in a MySQL database, and perform analysis to understand stock performance and trends.
+---
 
-The datasets used in this project are:
+## Business Rules Implemented
+The following business rules were applied during the data transformation phase:
 
-* AAPL (Apple)
-* GOOG (Google)
-* MSFT (Microsoft)
+1. Missing Value Treatment:
+   - close_price values were replaced using median close price per stock
+   - volume missing values were replaced with 0
+   - high_price was corrected using max(open_price, close_price)
+   - low_price was corrected using min(open_price, close_price)
 
-All three datasets are combined into a single cleaned table for easier comparison and analysis.
+2. Price Sanity Checks:
+   - Ensured high_price ≥ open_price and close_price
+   - Ensured low_price ≤ open_price and close_price
+   - Any violations were automatically corrected during preprocessing
+
+3. Trend Classification:
+   - daily_return > 0 → UP
+   - daily_return < 0 → DOWN
+   - daily_return = 0 → NO_CHANGE
 
 ---
 
 ## ETL Pipeline Flow
+The project follows a structured ETL pipeline:
 
-The project follows a structured ETL process:
+CSV Files (Raw Stock Data)  
+        ↓  
+Python (Pandas) – Data Cleaning & Transformation  
+- Handling missing values  
+- Removing duplicates  
+- Applying business rules  
+        ↓  
+MySQL Database (Clean Table: stock_prices)  
+        ↓  
+SQL Validation + Data Visualization (Matplotlib)
 
-Raw CSV Files (AAPL, GOOG, MSFT)
-→ Data Extraction using Pandas
-→ Data Cleaning and Transformation
-→ Feature Engineering (daily_return, trend)
-→ Load Clean Data into MySQL (stock_prices table)
-→ SQL Validation and Data Visualization
-
-This pipeline converts raw and unclean data into a structured and analysis-ready dataset.
-
----
-
-## Data Transformation & Business Rules
-
-During the transformation phase, the following steps were applied to maintain data quality:
-
-### Missing Value Handling
-
-* Missing close_price values were filled using the median close price of each stock
-* Missing volume values were replaced with 0
-* Missing high_price values were corrected using max(open_price, close_price)
-* Missing low_price values were corrected using min(open_price, close_price)
-
-### Data Quality Checks
-
-* Ensured high_price is always greater than or equal to open_price and close_price
-* Ensured low_price is always less than or equal to open_price and close_price
-* Removed duplicate records during preprocessing
-
-### Feature Engineering
-
-* Calculated daily_return for each stock
-* Created a trend column:
-
-  * UP (positive return)
-  * DOWN (negative return)
-  * NO_CHANGE (zero return)
+This pipeline ensures that raw data is converted into a clean and analysis-ready dataset.
 
 ---
 
-## Analysis & Insights
+## Business Insights Generated
+Through the analysis of cleaned stock data, the following insights were generated:
+- Identification of best performing stock based on average daily returns
+- Detection of highest volatility stock using standard deviation of returns
+- Analysis of volume vs price movement correlation
+- Trend ratio analysis (UP, DOWN, NO_CHANGE) for each company
+- Identification of abnormal volume spike days
+- Visualization of daily closing price trends for each stock
 
-After cleaning and loading the data, the following analysis was performed:
-
-* Identified the best performing stock based on average daily returns
-* Measured stock volatility using standard deviation of returns
-* Analyzed the relationship between trading volume and price movement
-* Compared UP vs DOWN trend ratio for each company
-* Detected abnormal volume spike days
-* Visualized daily closing price trends for AAPL, GOOG, and MSFT
-
-These insights help in understanding stock behavior and performance patterns.
+These insights help in understanding stock behavior and market trends.
 
 ---
 
 ## Project Structure
-
 Saisree_Stock_Analysis_P1/
+│
+├── P1_Stock Analysis.ipynb        # Main Jupyter Notebook (ETL + Analysis)
+├── aapl_stock_prices.csv          # Apple stock dataset
+├── goog_stock_prices.csv          # Google stock dataset
+├── msft_stock_prices.csv          # Microsoft stock dataset
+└── README.md                      # Project documentation
 
-* Stock_Analysis_P1.ipynb  → Main notebook (ETL + Analysis + Visualization)
-* aapl_stock_prices.csv    → Raw Apple dataset
-* goog_stock_prices.csv    → Raw Google dataset
-* msft_stock_prices.csv    → Raw Microsoft dataset
-* README.md                → Project documentation
+The notebook contains the complete ETL process, MySQL integration, and technical analysis.
 
 ---
 
 ## Technologies Used
-
-* Python (Pandas, NumPy, Matplotlib)
-* MySQL
-* SQLAlchemy
-* Jupyter Notebook
-* Git & GitHub
+- Python (Pandas, NumPy, Matplotlib)
+- MySQL (Database for storing cleaned data)
+- SQLAlchemy (Database connection)
+- Jupyter Notebook (Development environment)
+- GitHub (Version control and project submission)
 
 ---
 
 ## What I Learned
-
-Through this project, I learned how to build a complete ETL pipeline using Python and MySQL.
-I gained practical experience in data cleaning, handling missing values, applying business rules, and transforming raw datasets into a structured format.
-
-I also learned how to integrate Python with MySQL, validate data using SQL queries, and perform basic technical analysis such as trend classification, volatility analysis, and data visualization.
-
-Overall, this project improved my understanding of data engineering concepts and real-world data preprocessing.
+Through this project, I gained practical experience in building a real-world ETL pipeline using Python and MySQL. I learned how to clean and preprocess raw datasets, implement business rules, and perform structured data analysis.  
+Additionally, I understood how to integrate MySQL with Python, validate data using SQL queries, and create meaningful visualizations for stock trend analysis.  
+This project also improved my understanding of data engineering concepts such as data transformation, database loading, and analytical reporting using financial datasets.
