@@ -62,11 +62,15 @@ These insights help in understanding stock behavior and market trends.
 ```
 Saisree_Stock_Analysis_P1/
 │
-├── P1_Stock Analysis.ipynb      # Main Jupyter Notebook (ETL + Analysis)
-├── aapl_stock_prices.csv        # Apple stock dataset
-├── goog_stock_prices.csv        # Google stock dataset
-├── msft_stock_prices.csv        # Microsoft stock dataset
-└── README.md                   # Project documentation
+├── P1_Stock Analysis.ipynb          # Main Jupyter Notebook (ETL + Analysis)
+├── Problem Statement Stock Analysis # Project problem statement document
+├── Stock Analysis - P1.docx         # Detailed project documentation/report
+├── aapl_stock_prices.csv            # Apple stock dataset
+├── goog_stock_prices.csv            # Google stock dataset
+├── msft_stock_prices.csv            # Microsoft stock dataset
+├── mysql_ddl.sql                    # Database schema (DDL script)
+└── README.md                        # Project documentation
+
 ```
 
 
