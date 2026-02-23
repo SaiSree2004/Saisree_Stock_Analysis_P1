@@ -82,6 +82,15 @@ Saisree_Stock_Analysis_P1/
 - GitHub (Version control and project submission)
 
 ---
+## Visualizations
+<img width="876" height="701" alt="image" src="https://github.com/user-attachments/assets/b96b0a19-6a34-4722-8d15-899f4e1574e2" />
+<img width="356" height="334" alt="image" src="https://github.com/user-attachments/assets/485b62fe-2bbb-4d48-8630-94df0d7f2725" />
+<img width="958" height="725" alt="image" src="https://github.com/user-attachments/assets/ab9e79ca-f3f6-4215-9c29-af797a4af0e5" />
+<img width="876" height="702" alt="image" src="https://github.com/user-attachments/assets/4d5417ba-c855-4fa1-87a4-5dc944c6e359" />
+
+
+
+
 
 ## What I Learned
 Through this project, I gained practical experience in building a real-world ETL pipeline using Python and MySQL. I learned how to clean and preprocess raw datasets, implement business rules, and perform structured data analysis.  
